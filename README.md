@@ -2,7 +2,13 @@
 
 ## 🛠️ Setup Instructions
 
-### 1. Create Index Mappings
+### 1. Fire up elasticsearch and kibana
+Use the docker-compose file to start an instance of a single node elasticsearch and kibana v8.17.0
+```
+docker-compose up -d'
+```
+
+### 2. Create Index Mappings
 
 First, create the index mappings in Elasticsearch.  
 You can refer to the mapping definitions in the file:
@@ -14,7 +20,7 @@ You can refer to the mapping definitions in the file:
 
 ---
 
-### 2. Generate Bulk Insert Files
+### 3. Generate Bulk Insert Files
 
 Run the following scripts to prepare JSON files for indexing:
 
@@ -36,13 +42,13 @@ python pq_quantization.py
 ```
 This script generates JSON bulk files for Product Quantization (PQ).
 
-### 3. Insert Data into Elasticsearch
+### 4. Insert Data into Elasticsearch
 Once the JSON files are ready, use the script below to insert everything into Elasticsearch:
 
 ```
 ./bulk_insert_es.sh
 ```
-### 4. Verify Index Sizes
+### 5. Verify Index Sizes
 After indexing, you can compare the storage sizes for each type of vector data by calling:
 
 ```
