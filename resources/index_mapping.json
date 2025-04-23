@@ -1,0 +1,103 @@
+PUT /demo_float_hnsw
+{
+  "settings": {
+    "index": {
+      "store": {
+        "preload": ["veq", "vex"]
+      }
+    },
+    "number_of_replicas" : 0
+  },
+  "mappings": {
+    "properties": {
+      "vec": {
+        "type": "dense_vector",
+        "dims": 384,
+        "index": true,
+        "similarity": "cosine",
+        "element_type": "float",
+        "index_options": {
+          "type": "hnsw"
+        }
+      }
+    }
+  }
+}
+
+PUT /demo_byte_ext_hnsw
+{
+  "settings": {
+    "index": {
+      "store": {
+        "preload": ["veq", "vex"]
+      }
+    },
+    "number_of_replicas" : 0
+  },
+  "mappings": {
+    "properties": {
+      "vec": {
+        "type": "dense_vector",
+        "dims": 384,
+        "index": true,
+        "similarity": "cosine",
+        "element_type": "byte",
+        "index_options": {
+          "type": "hnsw"
+        }
+      }
+    }
+  }
+}
+
+PUT /demo_bqq_quantized
+{
+  "settings": {
+    "index": {
+      "store": {
+        "preload": ["veq", "vex"]
+      }
+    },
+    "number_of_replicas" : 0
+  },
+  "mappings": {
+    "properties": {
+      "vec": {
+        "type": "dense_vector",
+        "dims": 384,  // Adjust the dimensions to match the BBQ quantized vectors
+        "index": true,
+        "similarity": "cosine",
+        "element_type": "byte",
+        "index_options": {
+          "type": "hnsw"
+        }
+      }
+    }
+  }
+}
+
+PUT /demo_pq_quantized
+{
+  "settings": {
+    "index": {
+      "store": {
+        "preload": ["veq", "vex"]
+      }
+    },
+    "number_of_replicas" : 0
+  },
+  "mappings": {
+    "properties": {
+      "vec": {
+        "type": "dense_vector",
+        "dims": 384,
+        "index": true,
+        "similarity": "cosine",
+        "element_type": "byte",
+        "index_options": {
+          "type": "hnsw"
+        }
+      }
+    }
+  }
+}
